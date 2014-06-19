@@ -18,23 +18,23 @@ import (
 	"github.com/yosssi/boltstore/store"
 )
 
-func BenchmarkCookieStore_Get(b *testing.B) {
+func BenchmarkCookieStore_New(b *testing.B) {
 	// Create a store.
 	str := sessions.NewCookieStore([]byte(secretKey))
 
 	// Benchmark.
-	benchmarkGet(b, str)
+	benchmarkNew(b, str)
 }
 
-func BenchmarkFilesystemStore_Get(b *testing.B) {
+func BenchmarkFilesystemStore_New(b *testing.B) {
 	// Create a store.
 	str := sessions.NewFilesystemStore(filesystemStorePath, []byte(secretKey))
 
 	// Benchmark.
-	benchmarkGet(b, str)
+	benchmarkNew(b, str)
 }
 
-func BenchmarkBoltstore_Get(b *testing.B) {
+func BenchmarkBoltstore_New(b *testing.B) {
 	// Open a Bolt database.
 	db, err := bolt.Open(boltDBPath, 0666)
 	if err != nil {
@@ -50,10 +50,10 @@ func BenchmarkBoltstore_Get(b *testing.B) {
 	}
 
 	// Benchmark.
-	benchmarkGet(b, str)
+	benchmarkNew(b, str)
 }
 
-func BenchmarkGorillaSessionsMemcache_Get(b *testing.B) {
+func BenchmarkGorillaSessionsMemcache_New(b *testing.B) {
 	// Create a client.
 	client := memcache.New(memcacheServer)
 
@@ -61,10 +61,10 @@ func BenchmarkGorillaSessionsMemcache_Get(b *testing.B) {
 	str := gsm.NewMemcacheStore(client, sessionPrefix, []byte(secretKey))
 
 	// Benchmark.
-	benchmarkGet(b, str)
+	benchmarkNew(b, str)
 }
 
-func BenchmarkMongostore_Get(b *testing.B) {
+func BenchmarkMongostore_New(b *testing.B) {
 	// Create a database session.
 	dbsess, err := mgo.Dial(mongoServer)
 	if err != nil {
@@ -77,10 +77,10 @@ func BenchmarkMongostore_Get(b *testing.B) {
 	str := mongostore.NewMongoStore(dbsess.DB(mongoDB).C(mongoCollection), 3600, true, []byte(secretKey))
 
 	// Benchmark.
-	benchmarkGet(b, str)
+	benchmarkNew(b, str)
 }
 
-func BenchmarkMysqlstore_Get(b *testing.B) {
+func BenchmarkMysqlstore_New(b *testing.B) {
 	// Create a store.
 	str, err := mysqlstore.NewMySQLStore(os.Getenv("MYSQL_USER")+":"+os.Getenv("MYSQL_PASSWORD")+mySQLServer, mySQLTableName, "/", 3600, []byte(secretKey))
 	if err != nil {
@@ -90,20 +90,20 @@ func BenchmarkMysqlstore_Get(b *testing.B) {
 	defer str.Close()
 
 	// Benchmark.
-	benchmarkGet(b, str)
+	benchmarkNew(b, str)
 }
 
-func BenchmarkPgstore_Get(b *testing.B) {
+func BenchmarkPgstore_New(b *testing.B) {
 	// Create a store.
 	str := pgstore.NewPGStore(fmt.Sprintf(postgreSQLServer, os.Getenv("PG_USER"), os.Getenv("PG_PASSWORD")), []byte(secretKey))
 
 	defer str.Close()
 
 	// Benchmark.
-	benchmarkGet(b, str)
+	benchmarkNew(b, str)
 }
 
-func BenchmarkRedistore_Get(b *testing.B) {
+func BenchmarkRedistore_New(b *testing.B) {
 	// Create a store.
 	str, err := redistore.NewRediStore(10, "tcp", redisServer, "", []byte(secretKey))
 	if err != nil {
@@ -113,22 +113,22 @@ func BenchmarkRedistore_Get(b *testing.B) {
 	defer str.Close()
 
 	// Benchmark.
-	benchmarkGet(b, str)
+	benchmarkNew(b, str)
 }
 
 /*
-func BenchmarkRiakstore_Get(b *testing.B) {
+func BenchmarkRiakstore_New(b *testing.B) {
 	// Create a store.
 	str := riakstore.NewRiakStore([]string{riakServer}, 5, riakBucket, []byte(secretKey))
 
 	defer str.Close()
 
 	// Benchmark.
-	benchmarkGet(b, str)
+	benchmarkNew(b, str)
 }
 */
 
-func benchmarkGet(b *testing.B, str sessions.Store) {
+func benchmarkNew(b *testing.B, str sessions.Store) {
 	// Create a request.
 	req, err := http.NewRequest("GET", "http://localhost:3000/", nil)
 	if err != nil {
@@ -140,7 +140,7 @@ func benchmarkGet(b *testing.B, str sessions.Store) {
 
 	// Get a session.
 	for i := 0; i < b.N; i++ {
-		_, err = str.Get(req, sessionKey)
+		_, err = str.New(req, sessionKey)
 		if err != nil {
 			b.Error(err)
 		}

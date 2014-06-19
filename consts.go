@@ -9,7 +9,7 @@ const (
 
 // constants for gorilla/sessions.FilesystemStore
 const (
-	filesystemStorePath = "sessions.txt"
+	filesystemStorePath = ""
 )
 
 // constants for yosssi/boltstore
