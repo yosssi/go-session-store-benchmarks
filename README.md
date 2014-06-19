@@ -44,12 +44,12 @@ BenchmarkRedistore_New	                 5000000	       320 ns/op	     131 B/op	 
 ### Save - persists session to the underlying store implementation
 
 ```
-BenchmarkCookieStore_Save	  100000	     22740 ns/op	    4101 B/op	      50 allocs/op
-BenchmarkFilesystemStore_Save	   10000	    238869 ns/op	    6955 B/op	      81 allocs/op
-BenchmarkBoltstore_Save	    5000	    361275 ns/op	   25184 B/op	     116 allocs/op
+BenchmarkCookieStore_Save	                100000	     22740 ns/op	    4101 B/op	      50 allocs/op
+BenchmarkFilesystemStore_Save	            10000	    238869 ns/op	    6955 B/op	      81 allocs/op
+BenchmarkBoltstore_Save	                  5000	    361275 ns/op	   25184 B/op	     116 allocs/op
 BenchmarkGorillaSessionsMemcache_Save	   10000	    129865 ns/op	    7098 B/op	      91 allocs/op
-BenchmarkMongostore_Save	   10000	    195949 ns/op	    9938 B/op	     144 allocs/op
-BenchmarkMysqlstore_Save	   10000	    342614 ns/op	    6272 B/op	      97 allocs/op
-BenchmarkPgstore_Save	    5000	    577048 ns/op	    9437 B/op	     134 allocs/op
-BenchmarkRedistore_Save	   10000	    150446 ns/op	    5476 B/op	      68 allocs/op
+BenchmarkMongostore_Save	                10000	    195949 ns/op	    9938 B/op	     144 allocs/op
+BenchmarkMysqlstore_Save	                10000	    342614 ns/op	    6272 B/op	      97 allocs/op
+BenchmarkPgstore_Save	                    5000	    577048 ns/op	    9437 B/op	     134 allocs/op
+BenchmarkRedistore_Save	                  10000	    150446 ns/op	    5476 B/op	      68 allocs/op
 ```
