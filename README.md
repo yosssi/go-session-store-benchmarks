@@ -35,10 +35,10 @@ BenchmarkCookieStore_New	             5000000	       450 ns/op	     180 B/op	   
 BenchmarkFilesystemStore_New	         5000000	       430 ns/op	     180 B/op	       3 allocs/op
 BenchmarkBoltstore_New	                10000000	       287 ns/op	     131 B/op	       2 allocs/op
 BenchmarkGorillaSessionsMemcache_New	 5000000	       336 ns/op	     180 B/op	       3 allocs/op
-BenchmarkMongostore_New	                5000000	       395 ns/op	     180 B/op	       3 allocs/op
-BenchmarkMysqlstore_New	                5000000	       427 ns/op	     180 B/op	       3 allocs/op
+BenchmarkMongostore_New	                  5000000	       395 ns/op	     180 B/op	       3 allocs/op
+BenchmarkMysqlstore_New	                  5000000	       427 ns/op	     180 B/op	       3 allocs/op
 BenchmarkPgstore_New	                10000000	       301 ns/op	     131 B/op	       2 allocs/op
-BenchmarkRedistore_New	                  5000000	       320 ns/op	     131 B/op	       2 allocs/op
+BenchmarkRedistore_New	                 5000000	       320 ns/op	     131 B/op	       2 allocs/op
 ```
 
 ### Save - persists session to the underlying store implementation
