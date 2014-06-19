@@ -20,12 +20,12 @@ This benchmark suite aims to compare the performance of session stores which imp
 ```
 BenchmarkCookieStore_Get	            20000000	        99.0 ns/op	       0 B/op	       0 allocs/op
 BenchmarkFilesystemStore_Get	        20000000	       107 ns/op	       0 B/op	       0 allocs/op
-BenchmarkBoltstore_Get	              20000000	       109 ns/op	       0 B/op	       0 allocs/op
+BenchmarkBoltstore_Get	                20000000	       109 ns/op	       0 B/op	       0 allocs/op
 BenchmarkGorillaSessionsMemcache_Get	20000000	       109 ns/op	       0 B/op	       0 allocs/op
-BenchmarkMongostore_Get	              20000000	       117 ns/op	       0 B/op	       0 allocs/op
-BenchmarkMysqlstore_Get	              20000000	       111 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMongostore_Get	                20000000	       117 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMysqlstore_Get	                20000000	       111 ns/op	       0 B/op	       0 allocs/op
 BenchmarkPgstore_Get	                20000000	       144 ns/op	       0 B/op	       0 allocs/op
-BenchmarkRedistore_Get	              20000000	       130 ns/op	       0 B/op	       0 allocs/op
+BenchmarkRedistore_Get	                20000000	       130 ns/op	       0 B/op	       0 allocs/op
 ```
 
 ### New - creates and return a new session 
