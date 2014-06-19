@@ -18,7 +18,7 @@ This benchmark suite aims to compare the performance of session stores which imp
 ### Get - returns a cached session
 
 ```
-BenchmarkCookieStore_Get	            20000000	        99.0 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCookieStore_Get	            20000000	      99.0 ns/op	       0 B/op	       0 allocs/op
 BenchmarkFilesystemStore_Get	        20000000	       107 ns/op	       0 B/op	       0 allocs/op
 BenchmarkBoltstore_Get	                20000000	       109 ns/op	       0 B/op	       0 allocs/op
 BenchmarkGorillaSessionsMemcache_Get	20000000	       109 ns/op	       0 B/op	       0 allocs/op
