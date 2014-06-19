@@ -4,8 +4,8 @@ This benchmark suite aims to compare the performance of session stores which imp
 
 ## Tested session stores
 
-* [CookieStore](http://godoc.org/github.com/gorilla/sessions#CookieStore) in gorilla/sessions - Cookie
-* [FilesystemStore](http://godoc.org/github.com/gorilla/sessions#FilesystemStore) in gorilla/sessions - File system
+* [CookieStore](http://godoc.org/github.com/gorilla/sessions#CookieStore) - Cookie
+* [FilesystemStore](http://godoc.org/github.com/gorilla/sessions#FilesystemStore) - File system
 * [yosssi/boltstore](https://github.com/yosssi/boltstore) - Bolt
 * [radleypeabody/gorilla-sessions-memcache](https://github.com/bradleypeabody/gorilla-sessions-memcache) - Memcache
 * [kidstuff/mongostore](https://github.com/kidstuff/mongostore) - MongoDB
