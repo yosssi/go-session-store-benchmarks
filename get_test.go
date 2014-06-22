@@ -36,7 +36,7 @@ func BenchmarkFilesystemStore_Get(b *testing.B) {
 
 func BenchmarkBoltstore_Get(b *testing.B) {
 	// Open a Bolt database.
-	db, err := bolt.Open(boltDBPath, 0666)
+	db, err := bolt.Open(boltDBPath, 0666, nil)
 	if err != nil {
 		b.Error(err)
 	}
